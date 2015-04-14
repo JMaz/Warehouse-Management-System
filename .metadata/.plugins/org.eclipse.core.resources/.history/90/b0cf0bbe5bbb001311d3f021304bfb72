@@ -1,0 +1,54 @@
+package inventory;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class AddNewItemGUI extends JFrame{
+	JPanel panel;
+	JLabel locNum;
+	/*
+	AddNewItemGUI(){
+	//	JFrame frame = new JFrame("Add Item");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(800,800);
+		setTitle("Add Item");
+		setResizable(false);
+		
+		locNum = new JLabel("Location Number");
+		locNum.setSize(200, 200);
+		
+		
+		add(locNum);
+		
+		
+		pack();
+		setVisible(true);
+		
+		
+	}*/
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AddNewItemGUI test = new AddNewItemGUI();
+		
+		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		test.setSize(800,800);
+		test.setTitle("Add Item");
+		test.setResizable(false);
+		
+		//locNum = new JLabel("Location Number");
+	//	locNum.setSize(200, 200);
+		
+		
+		//test.add(locNum);
+		
+		
+		test.pack();
+		test.setVisible(true);
+
+	}
+
+}

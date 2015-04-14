@@ -1,0 +1,78 @@
+package inventory;
+
+import java.sql.*;
+
+
+
+public class DatabaseAPI {
+	
+	Connection conn = null;
+	Statement st = null;
+	ResultSet rs = null;
+	PreparedStatement ps = null;
+	
+	String table = null;
+	
+	public DatabaseAPI(){
+		try{
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/warehouse","root","root");
+		
+			System.out.println("Connection");
+		}catch(Exception ex){
+			System.out.println("SQLException: " + ex.getMessage());
+		}
+	}
+	
+	public DatabaseAPI(String t){
+		table = t;
+		try{
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/warehouse","root","root");
+		
+			System.out.println("Connection");
+		}catch(Exception ex){
+			System.out.println("SQLException: " + ex.getMessage());
+		}
+	}
+	
+	public int addNewItem(int i, String n, String c){
+		try{
+		ps = conn.prepareStatement("Select * FROM " + table + " WHERE ItemNumber = ?");
+		ps.setInt(1,i);
+		rs = ps.executeQuery();
+		System.out.println(rs.getInt("ItemNumber"));
+		while(rs.next())
+		if(rs.getInt("ItemNumber") == i){
+			return 1;
+		}else{		
+			ps = conn.prepareStatement("INSERT INTO " + table + " (ItemNumber,Name,Catagory) VALUES (?,?,?)");
+			ps.setInt(1,i);
+			ps.setString(2,n);
+			ps.setString(3,c);
+			ps.executeUpdate();
+			return 0;
+		}
+		}catch(Exception ex){
+			System.out.println("SQLException: " + ex.getMessage());
+		}
+		
+		return -1;
+		
+	}
+	
+	
+	public static void main(String[] args) throws SQLException {
+		int r = -1;
+		DatabaseAPI test = new DatabaseAPI("itemtable");
+		r = test.addNewItem(6666, "cat", "g");
+		if (r == 0)
+			System.out.println("Success!");
+		else if(r == 1)
+			System.out.println("Item Number already there!");
+		else
+			System.out.println("fail!");
+		
+	}
+
+}

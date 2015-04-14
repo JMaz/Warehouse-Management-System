@@ -1,0 +1,29 @@
+package inventory;
+
+import javax.swing.JFrame;
+
+public class AddNewItemGUI {
+
+	
+	AddNewItemGUI(){
+		JFrame frame = new JFrame("Add Item");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		frame.pack();
+		frame.setVisible(true);
+		
+		
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AddNewItemGUI test = new AddNewItemGUI();
+		
+		
+
+	}
+
+}

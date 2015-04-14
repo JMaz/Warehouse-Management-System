@@ -1,0 +1,54 @@
+package inventory;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class AddNewItemGUI extends JFrame{
+
+	
+	public AddNewItemGUI(){
+		setVisible(true);
+		setSize(800,800);
+		setTitle("Add Item");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel mainPanel = new JPanel();
+		JLabel locNum = new JLabel();
+		JTextField locNumTxt = new JTextField();
+		JButton addBtn = new JButton();
+		
+		locNum.setText("Location Number");
+		locNum.setSize(200, 100);
+		
+		locNumTxt.setText("Enter Loc Num");
+		locNumTxt.setSize(200,100);
+		
+		addBtn.setText("Add");
+		addBtn.setSize(200,9000);
+		
+		mainPanel.add(locNum);
+		mainPanel.add(locNumTxt);
+		mainPanel.add(addBtn);
+		
+		add(mainPanel);
+		
+		
+		
+		
+		
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AddNewItemGUI test = new AddNewItemGUI();
+		
+
+
+	}
+
+}
